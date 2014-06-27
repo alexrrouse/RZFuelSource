@@ -22,9 +22,14 @@
 // Utilities
 #import "RZFuelSourceAppearance.h"
 
+// Views
+#import "RZTitleView.h"
+
 // Third Party
 #import "REMenu.h"
 #import "REMenuItem.h"
+#import "RZViewFactory.h"
+#import "RZButtonView.h"
 
 typedef enum : NSUInteger {
     RZMapViewControllerQueryUserLocation,
@@ -42,6 +47,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) RZMapViewControllerQuery  queryType;
 @property (nonatomic, strong) NSArray                   *fuelStations;
 @property (nonatomic, strong) NSTimer                   *panReloadTimer;
+@property (nonatomic, strong) RZTitleView *navTitleView;
 
 @end
 
@@ -150,9 +156,12 @@ typedef enum : NSUInteger {
     self.mapView.showsUserLocation = YES;
     self.queryType = RZMapViewControllerQueryUserLocation;
     
-    [self setTitle:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
+    self.navTitleView = (RZTitleView *)[UIView rz_loadFromNibNamed:NSStringFromClass([RZTitleView class])];
+    [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
+    [self.navTitleView.titleButton addTarget:self action:@selector(fuelTypeFilterWithSender:) forControlEvents:UIControlEventTouchUpInside];
+    [[self navigationItem] setTitleView:self.navTitleView];
     
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"FUELTYPE" style:UIBarButtonItemStylePlain target:self action:@selector(fuelTypeFilterWithSender:)]];
+//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"FUELTYPE" style:UIBarButtonItemStylePlain target:self action:@selector(fuelTypeFilterWithSender:)]];
 }
 
 #pragma mark - Overidden Properties
@@ -174,6 +183,10 @@ typedef enum : NSUInteger {
     if (_dropdownMenu == nil) {
         _dropdownMenu = [[REMenu alloc] initWithItems:[self dropDownItems]];
         [_dropdownMenu setCloseOnSelection:YES];
+        __weak RZMapViewController *weakSelf = self;
+        [_dropdownMenu setCloseCompletionHandler:^{
+            [weakSelf removeBlur];
+        }];
         [RZFuelSourceAppearance themeREMenu:_dropdownMenu];
     }
     return _dropdownMenu;
@@ -181,9 +194,8 @@ typedef enum : NSUInteger {
 
 - (void)setSelectedFuelType:(RZFuelType)selectedFuelType
 {
-    [self removeBlur];
     _selectedFuelType = selectedFuelType;
-    [self setTitle:[[NSString shortDescriptionForFuelType:selectedFuelType] uppercaseString]];
+    [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:selectedFuelType] uppercaseString]];
 }
 
 #pragma mark - Create Drop Down Items
@@ -226,7 +238,7 @@ typedef enum : NSUInteger {
 
 - (void)blurAndAddView
 {
-    self.blurredImageView = [[UIImageView alloc] initWithImage:[UIImage rz_blurredImageByCapturingView:self.view afterScreenUpdate:NO withRadius:3.f tintColor:[UIColor colorWithWhite:0.5f alpha:0.5f] saturationDeltaFactor:0.75f]];
+    self.blurredImageView = [[UIImageView alloc] initWithImage:[UIImage rz_blurredImageByCapturingView:self.view afterScreenUpdate:NO withRadius:5.f tintColor:[UIColor colorWithWhite:0.4f alpha:0.65f] saturationDeltaFactor:0.5f]];
     self.blurredImageView.alpha = 0.f;
     [self.view addSubview:self.blurredImageView];
     [UIView animateWithDuration:0.3f animations:^{
@@ -242,10 +254,7 @@ typedef enum : NSUInteger {
         [self blurAndAddView];
         [self.dropdownMenu showFromNavigationController:self.navigationController];
     } else {
-        __weak RZMapViewController *weakSelf = self;
-        [self.dropdownMenu closeWithCompletion:^{
-            [weakSelf removeBlur];
-        }];
+        [self.dropdownMenu closeWithCompletion:nil];
     }
 }
 

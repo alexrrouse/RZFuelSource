@@ -86,6 +86,8 @@
 		E1013F5D195DC630009BDCA4 /* RZFuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5C195DC630009BDCA4 /* RZFuelType.m */; };
 		E1013F60195DD454009BDCA4 /* UIColor+fuelSourceColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */; };
 		E1013F63195DE689009BDCA4 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F62195DE689009BDCA4 /* REMenuItemView.m */; };
+		E1013F67195DECA2009BDCA4 /* RZTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F66195DECA2009BDCA4 /* RZTitleView.m */; };
+		E1013F69195DEDD8009BDCA4 /* RZTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1013F68195DEDD8009BDCA4 /* RZTitleView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +255,9 @@
 		E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+fuelSourceColors.m"; path = "Categories/UIColor+fuelSourceColors.m"; sourceTree = "<group>"; };
 		E1013F61195DE689009BDCA4 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
 		E1013F62195DE689009BDCA4 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
+		E1013F65195DECA2009BDCA4 /* RZTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZTitleView.h; path = Views/RZTitleView.h; sourceTree = "<group>"; };
+		E1013F66195DECA2009BDCA4 /* RZTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZTitleView.m; path = Views/RZTitleView.m; sourceTree = "<group>"; };
+		E1013F68195DEDD8009BDCA4 /* RZTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RZTitleView.xib; path = Views/RZTitleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,6 +781,7 @@
 				E1013F40195DB7E8009BDCA4 /* Categories */,
 				984149A9195DB2BE00DC2FDD /* Data */,
 				E1013F35195DB024009BDCA4 /* View Controllers */,
+				E1013F64195DEC81009BDCA4 /* Views */,
 				E1013F16195DAF56009BDCA4 /* Images.xcassets */,
 				E1013F05195DAF56009BDCA4 /* Supporting Files */,
 			);
@@ -868,6 +874,16 @@
 			path = ../External/REMenu/REMenu;
 			sourceTree = "<group>";
 		};
+		E1013F64195DEC81009BDCA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F65195DECA2009BDCA4 /* RZTitleView.h */,
+				E1013F66195DECA2009BDCA4 /* RZTitleView.m */,
+				E1013F68195DEDD8009BDCA4 /* RZTitleView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,6 +963,7 @@
 			files = (
 				E1013F17195DAF56009BDCA4 /* Images.xcassets in Resources */,
 				E1013F09195DAF56009BDCA4 /* InfoPlist.strings in Resources */,
+				E1013F69195DEDD8009BDCA4 /* RZTitleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,6 +1021,7 @@
 				98414A85195DB34800DC2FDD /* AFURLRequestSerialization.m in Sources */,
 				E1013F5D195DC630009BDCA4 /* RZFuelType.m in Sources */,
 				98414A4A195DB32500DC2FDD /* RZAnimatedCountingLabel.m in Sources */,
+				E1013F67195DECA2009BDCA4 /* RZTitleView.m in Sources */,
 				98414A86195DB34800DC2FDD /* AFURLResponseSerialization.m in Sources */,
 				98414A84195DB34800DC2FDD /* AFURLConnectionOperation.m in Sources */,
 				98414A37195DB32500DC2FDD /* NSDate+RZExtensions.m in Sources */,

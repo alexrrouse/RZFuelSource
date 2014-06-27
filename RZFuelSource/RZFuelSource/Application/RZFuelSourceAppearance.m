@@ -42,18 +42,22 @@
     
     // NOTE: reduced font size to 20 from 22 because at 22 "g"s are cut off
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIFont systemFontOfSize:18.f], NSFontAttributeName,
+                                                          [UIFont fontWithName:@"DINCondensed-Bold" size:22.f], NSFontAttributeName,
                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
                                                           nil]];
 }
 
 + (void)themeREMenu:(REMenu *)menu
 {
-    menu.shadowColor = [UIColor clearColor];
+//    menu.shadowColor = [UIColor clearColor];
+    menu.shadowColor = [UIColor colorWithWhite:0.25f alpha:1.f];
+    menu.shadowOpacity = 1.f;
+    menu.shadowRadius = 8.f;
+    
     menu.borderWidth = 0.f;
     menu.borderColor = [UIColor clearColor];
     menu.highlightedTextColor = [UIColor whiteColor];
-    menu.highlightedSeparatorColor = [UIColor grayColor];
+    menu.highlightedSeparatorColor = [UIColor colorWithRed:180.f/255.f green:69.f/255.f blue:59.f/255.f alpha:1.f];
     menu.highlightedTextShadowColor = [UIColor clearColor];
     menu.highlightedBackgroundColor = [UIColor colorWithRed:180.f/255.f green:69.f/255.f blue:59.f/255.f alpha:1.f];
     menu.backgroundColor = [UIColor raizlabsRed];
@@ -61,7 +65,9 @@
     menu.separatorHeight = 0.5f;
     menu.textShadowColor = [UIColor clearColor];
     menu.textColor = [UIColor whiteColor];
-    menu.font = [UIFont systemFontOfSize:18.f];
+    menu.textAlignment = NSTextAlignmentCenter;
+    menu.textOffset = CGSizeMake(0, 4.f);
+    menu.font = [UIFont fontWithName:@"DINCondensed-Bold" size:22.f];
 }
 
 @end
