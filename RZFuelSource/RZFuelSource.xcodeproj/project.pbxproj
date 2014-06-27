@@ -20,6 +20,7 @@
 		E1013F20195DAF56009BDCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F02195DAF56009BDCA4 /* UIKit.framework */; };
 		E1013F28195DAF56009BDCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1013F26195DAF56009BDCA4 /* InfoPlist.strings */; };
 		E1013F2A195DAF56009BDCA4 /* RZFuelSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */; };
+		E1013F3E195DB355009BDCA4 /* NSString+FuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F3D195DB355009BDCA4 /* NSString+FuelType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		E1013F25195DAF56009BDCA4 /* RZFuelSourceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RZFuelSourceTests-Info.plist"; sourceTree = "<group>"; };
 		E1013F27195DAF56009BDCA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZFuelSourceTests.m; sourceTree = "<group>"; };
+		E1013F37195DB1D4009BDCA4 /* RZFuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelType.h; path = Model/RZFuelType.h; sourceTree = "<group>"; };
+		E1013F3C195DB355009BDCA4 /* NSString+FuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FuelType.h"; path = "Categories/NSString+FuelType.h"; sourceTree = "<group>"; };
+		E1013F3D195DB355009BDCA4 /* NSString+FuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FuelType.m"; path = "Categories/NSString+FuelType.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				E1013F34195DB01F009BDCA4 /* Application */,
+				E1013F38195DB2E0009BDCA4 /* Categories */,
+				E1013F36195DB140009BDCA4 /* Model */,
 				E1013F35195DB024009BDCA4 /* View Controllers */,
 				E1013F16195DAF56009BDCA4 /* Images.xcassets */,
 				E1013F05195DAF56009BDCA4 /* Supporting Files */,
@@ -171,6 +177,23 @@
 				E1013F33195DB018009BDCA4 /* Map View Controller */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E1013F36195DB140009BDCA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F37195DB1D4009BDCA4 /* RZFuelType.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E1013F38195DB2E0009BDCA4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F3C195DB355009BDCA4 /* NSString+FuelType.h */,
+				E1013F3D195DB355009BDCA4 /* NSString+FuelType.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +295,7 @@
 			files = (
 				E1013F0F195DAF56009BDCA4 /* RZAppDelegate.m in Sources */,
 				E1013F15195DAF56009BDCA4 /* RZMapViewController.m in Sources */,
+				E1013F3E195DB355009BDCA4 /* NSString+FuelType.m in Sources */,
 				E1013F0B195DAF56009BDCA4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
