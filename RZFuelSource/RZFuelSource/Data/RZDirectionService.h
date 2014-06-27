@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class MKRoute;
+@import MapKit;
 
 typedef void(^RZDirectionsServiceLineStringBlock)(NSString *lineString, MKRoute *route, NSError *error);
 
@@ -17,6 +16,10 @@ typedef void(^RZDirectionsServiceLineStringBlock)(NSString *lineString, MKRoute 
 
 + (instancetype)sharedInstance;
 
-- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request withCompletionBlock:(RZDirectionsServiceLineStringBlock)completion;
+- (void)directionsFromSourceCoordinate:(CLLocationCoordinate2D)source destinationCoordinate:(CLLocationCoordinate2D)destination completion:(RZDirectionsServiceLineStringBlock)completion;
+
+- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request completion:(RZDirectionsServiceLineStringBlock)completion;
+
+- (void)directionsFromSourceLocation:(MKMapItem *)source destinationLocation:(MKMapItem *)destination completion:(RZDirectionsServiceLineStringBlock)completion;
 
 @end

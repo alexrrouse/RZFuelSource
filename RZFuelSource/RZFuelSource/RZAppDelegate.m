@@ -66,6 +66,7 @@
     
     if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
         MKDirectionsRequest* request = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
+        [[RZDirectionService sharedInstance] directionsFromDirectionRequest:directionsInfo completion:^(NSString *lineString, MKRoute *route, NSError *error) {
         [self.rootViewController focusOnDirectionRequest:request];
 
         return YES;
