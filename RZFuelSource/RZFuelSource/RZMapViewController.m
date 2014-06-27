@@ -41,6 +41,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSURLSessionDataTask      *queryTask;
 @property (nonatomic, assign) RZMapViewControllerQuery  queryType;
 @property (nonatomic, strong) NSArray                   *fuelStations;
+@property (nonatomic, strong) NSTimer                   *panReloadTimer;
 
 @end
 
@@ -101,14 +102,40 @@ typedef enum : NSUInteger {
 
 - (void)loadFuelStations:(NSArray *)fuelStations
 {
+    // Remove any fuel stations that have gone out of our scope
     if (self.fuelStations) {
-        [self.mapView removeAnnotations:self.fuelStations];
-        self.fuelStations = nil;
+        for (RZFuelStation *station in self.fuelStations) {
+            if ([fuelStations containsObject:station] == NO) {
+                [self.mapView removeAnnotation:(id)station];
+            }
+        }
     }
+    
+    // Determine the stations added to our scope
+    NSMutableArray *newStations = [@[] mutableCopy];
+    for (RZFuelStation *station in fuelStations) {
+        if ([self.fuelStations containsObject:station] == NO) {
+            [newStations addObject:station];
+        }
+    }
+
     self.fuelStations = fuelStations;
-    if (self.fuelStations) {
-        [self.mapView showAnnotations:self.fuelStations animated:YES];
+    
+    // Update the new stations, dependent on the query type.
+    if ([newStations count]) {
+        if (self.queryType == RZMapViewControllerQueryMapLocation) {
+            [self.mapView addAnnotations:newStations];
+        } else {
+            // The load was not caused by a drag, so animate to the location
+            [self.mapView showAnnotations:newStations animated:YES];
+        }
     }
+}
+
+- (void)updateFocusDueToMapChange
+{
+    self.queryType = RZMapViewControllerQueryMapLocation;
+    [self focusOnCoordinate:self.mapView.centerCoordinate];
 }
 
 #pragma mark - ViewController Lifecycle
@@ -223,10 +250,15 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark MKMapViewDelegate - DataSource
-
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    [self.panReloadTimer invalidate];
+    self.panReloadTimer = nil;
+}
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    
+    [self.panReloadTimer invalidate];
+    self.panReloadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateFocusDueToMapChange) userInfo:nil repeats:NO];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
