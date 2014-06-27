@@ -32,6 +32,11 @@
 #import "RZViewFactory.h"
 #import "RZButtonView.h"
 
+typedef NS_ENUM(NSInteger, RZMapViewControllerDisplayState) {
+    kRZMapViewControllerDisplayStateCustom,
+    kRZMapViewControllerDisplayStateRoute
+};
+
 typedef enum : NSUInteger {
     RZMapViewControllerQueryUserLocation,
     RZMapViewControllerQueryMapLocation,
@@ -48,6 +53,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) RZMapViewControllerQuery  queryType;
 @property (nonatomic, strong) NSTimer                   *panReloadTimer;
 @property (nonatomic, strong) RZTitleView *navTitleView;
+@property (nonatomic, assign) RZMapViewControllerDisplayState displayState;
 @end
 
 @implementation RZMapViewController
@@ -78,6 +84,8 @@ typedef enum : NSUInteger {
     if (self.queryTask) {
         [self.queryTask cancel];
     }
+    self.displayState = kRZMapViewControllerDisplayStateRoute;
+    [self.navTitleView.titleLabel setText:[@"Route" uppercaseString]];
     [[RZDirectionService sharedInstance] directionsFromDirectionRequest:request completion:^(NSString *lineString, MKRoute *route, NSError *error) {
         self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationsWithFuelType:self.selectedFuelType
                                                                                        route:lineString
@@ -96,10 +104,10 @@ typedef enum : NSUInteger {
 
 - (void)focusOnCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    if (self.queryTask) {
+    if (self.queryTask || self.displayState == kRZMapViewControllerDisplayStateRoute) {
         return;
     }
-
+    
     self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:self.selectedFuelType
                                                                                     lat:coordinate.latitude
                                                                                     lon:coordinate.longitude
@@ -212,6 +220,7 @@ typedef enum : NSUInteger {
 - (void)setSelectedFuelType:(RZFuelType)selectedFuelType
 {
     _selectedFuelType = selectedFuelType;
+    self.displayState = kRZMapViewControllerDisplayStateCustom;
     [self updateFocusDueToMapChange];
     [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:selectedFuelType] uppercaseString]];
 }
