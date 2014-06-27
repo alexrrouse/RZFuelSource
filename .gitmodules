@@ -1,0 +1,9 @@
+[submodule "External/RZImport"]
+	path = External/RZImport
+	url = git@github.com:Raizlabs/RZImport.git
+[submodule "External/RZUtils"]
+	path = External/RZUtils
+	url = git@github.com:Raizlabs/RZUtils.git
+[submodule "External/AFNetworking"]
+	path = External/AFNetworking
+	url = git@github.com:AFNetworking/AFNetworking.git

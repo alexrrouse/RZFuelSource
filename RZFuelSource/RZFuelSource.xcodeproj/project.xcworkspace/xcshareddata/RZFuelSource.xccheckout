@@ -10,15 +10,27 @@
 	<string>RZFuelSource</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>28B39513-F043-461B-BFF3-214547648481</key>
+		<string>ssh://github.com/AFNetworking/AFNetworking.git</string>
+		<key>33C3B09A-56C7-4D29-9598-A82638C534BD</key>
+		<string>ssh://github.com/Raizlabs/RZUtils.git</string>
 		<key>74374069-4443-4BBA-9AF0-D0D1D61730AF</key>
 		<string>https://github.com/arrouse/RZFuelSource.git</string>
+		<key>E29688D7-E4F1-4DE2-BD50-6112787BCA0F</key>
+		<string>ssh://github.com/Raizlabs/RZImport.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RZFuelSource/RZFuelSource.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>28B39513-F043-461B-BFF3-214547648481</key>
+		<string>../../../External/AFNetworking</string>
+		<key>33C3B09A-56C7-4D29-9598-A82638C534BD</key>
+		<string>../../../External/RZUtils</string>
 		<key>74374069-4443-4BBA-9AF0-D0D1D61730AF</key>
 		<string>../../..</string>
+		<key>E29688D7-E4F1-4DE2-BD50-6112787BCA0F</key>
+		<string>../../../External/RZImport</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/arrouse/RZFuelSource.git</string>
@@ -32,9 +44,33 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>28B39513-F043-461B-BFF3-214547648481</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>74374069-4443-4BBA-9AF0-D0D1D61730AF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RZFuelSource</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E29688D7-E4F1-4DE2-BD50-6112787BCA0F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RZImport</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>33C3B09A-56C7-4D29-9598-A82638C534BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RZUtils</string>
 		</dict>
 	</array>
 </dict>
