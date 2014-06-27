@@ -7,6 +7,13 @@
 //
 
 #import "RZFuelStation.h"
+#import "RZImportable.h"
+
+#import "NSString+FuelType.h"
+
+@interface RZFuelStation () <RZImportable>
+
+@end
 
 @implementation RZFuelStation
 - (NSString *)title
@@ -18,5 +25,37 @@
 {
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
 }
+
++ (NSDictionary *)customMappings
+{
+    static NSDictionary *s_customMappings = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        s_customMappings = @{ @"id" : @"stationID"};
+    });
+    
+    return s_customMappings;
+}
+
+#pragma mark - RZImportable
+
+- (BOOL)rzi_shouldImportValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqualToString:@"ev_connector_types"]) {
+        if ([value isKindOfClass:[NSArray class]]) {
+            self.evConnectorTypes = value;
+        }
+        return NO;
+    }
+    else if ([key isEqualToString:@"fuel_type_code"]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.fuelType = [value fuelType];
+        }
+        return NO;
+    }
+    return YES;
+}
+
 
 @end

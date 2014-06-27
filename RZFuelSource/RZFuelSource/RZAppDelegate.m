@@ -21,10 +21,10 @@
     self.window.rootViewController = rootNavController;
     [self.window makeKeyAndVisible];
     
-//    [[RZFuelWebService sharedInstance] fetchNearbyLocationWithLat:42.3581 lon:-71.0636 completionBlock:^(NSArray *objects, NSError *error) {
-//        
-//    }];
-//    
+    [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:RZFuelTypeElectric lat:42.3581 lon:-71.0636 completionBlock:^(NSArray *objects, NSError *error) {
+        
+    }];
+    
     return YES;
 }
 							

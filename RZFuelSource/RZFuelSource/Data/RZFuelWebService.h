@@ -9,6 +9,7 @@
 @import Foundation;
 
 #import "RZFuelStation.h"
+#import "RZFuelType.h"
 
 typedef void(^RZFueldWebServiceItemListBlock)(NSArray *objects, NSError *error);
 
@@ -17,5 +18,10 @@ typedef void(^RZFueldWebServiceItemListBlock)(NSArray *objects, NSError *error);
 + (instancetype)sharedInstance;
 
 - (NSURLSessionDataTask *)fetchNearbyLocationWithLat:(CGFloat)lat lon:(CGFloat)lon completionBlock:(RZFueldWebServiceItemListBlock)completion;
+
+- (NSURLSessionDataTask *)fetchNearbyLocationWithFuelType:(RZFuelType)fuelType lat:(CGFloat)lat lon:(CGFloat)lon completionBlock:(RZFueldWebServiceItemListBlock)completion;
+
+- (NSURLSessionDataTask *)fetchNearbyLocationsWithFuelType:(RZFuelType)fuelType route:(NSString *)routeString completionBlock:(RZFueldWebServiceItemListBlock)completion;
+
 
 @end

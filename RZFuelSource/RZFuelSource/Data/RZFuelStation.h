@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "RZFuelType.h"
 
 @interface RZFuelStation : NSObject
 
@@ -23,11 +24,10 @@
 @property (nonatomic, strong) NSString *evLevel1EvseNum;
 @property (nonatomic, strong) NSString *evLevel2EvseNum;
 @property (nonatomic, strong) NSString *evNetwork;
-@property (nonatomic, strong) NSDictionary  *evNetworkIds;
 @property (nonatomic, strong) NSString *evNetworkWeb;
 @property (nonatomic, strong) NSString *evOtherEvse;
 @property (nonatomic, strong) NSDate   *expectedDate;
-@property (nonatomic, strong) NSString *fuelTypeCode;
+@property (nonatomic, assign) RZFuelType fuelType;
 @property (nonatomic, strong) NSString *geocodeStatus;
 @property (nonatomic, strong) NSString *groupsWithAccessCode;
 @property (nonatomic, strong) NSString *hyStatusLink;
@@ -50,5 +50,6 @@
 @property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic, strong) NSString *zip;
 
++ (NSDictionary *)customMappings;
 
 @end
