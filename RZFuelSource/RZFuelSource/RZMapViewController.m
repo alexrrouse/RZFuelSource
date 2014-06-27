@@ -65,7 +65,7 @@ typedef enum : NSUInteger {
 
 - (void)commonInit
 {
-    _selectedFuelType = RZFuelTypeElectric;
+    _selectedFuelType = RZFuelTypeAll;
 }
 
 - (MKMapView *)mapView
@@ -158,8 +158,6 @@ typedef enum : NSUInteger {
     [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
     [self.navTitleView.titleButton addTarget:self action:@selector(fuelTypeFilterWithSender:) forControlEvents:UIControlEventTouchUpInside];
     [[self navigationItem] setTitleView:self.navTitleView];
-    
-//    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"FUELTYPE" style:UIBarButtonItemStylePlain target:self action:@selector(fuelTypeFilterWithSender:)]];
 }
 
 #pragma mark - Overidden Properties
@@ -193,6 +191,7 @@ typedef enum : NSUInteger {
 - (void)setSelectedFuelType:(RZFuelType)selectedFuelType
 {
     _selectedFuelType = selectedFuelType;
+    [self updateFocusDueToMapChange];
     [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:selectedFuelType] uppercaseString]];
 }
 

@@ -8,6 +8,6 @@
 
 #import "RZFuelType.h"
 
-const NSUInteger kRZFuelTypeFirstObject = RZFuelTypeBioDiesel;
+const NSUInteger kRZFuelTypeFirstObject = RZFuelTypeAll;
 const NSUInteger kRZFuelTypeLastObject = RZFuelTypePetroleumGas;
 const NSUInteger kRZFuelTypeNumObjects = kRZFuelTypeLastObject + 1;

@@ -69,16 +69,16 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
-        MKDirectionsRequest* directionsInfo = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
-        [[RZDirectionService sharedInstance] directionsFromDirectionRequest:directionsInfo];
-        // TO DO: Plot and display the route using the
-        //   source and destination properties of directionsInfo.
-        return YES;
-    }
-    else {
-        // Handle other URL types...
-    }
+//    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
+//        MKDirectionsRequest* directionsInfo = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
+//        [[RZDirectionService sharedInstance] directionsFromDirectionRequest:directionsInfo];
+//        // TO DO: Plot and display the route using the
+//        //   source and destination properties of directionsInfo.
+//        return YES;
+//    }
+//    else {
+//        // Handle other URL types...
+//    }
     return NO;
 }
 
