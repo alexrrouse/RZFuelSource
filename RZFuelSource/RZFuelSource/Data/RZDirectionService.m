@@ -55,18 +55,28 @@
                 
                 //this part just shows how to use the results...
                 NSLog(@"route pointCount = %d", pointCount);
-//                for (int c=0; c < pointCount; c++)
-//                {
-//                    CLLocationCoordinate2D coord = routeCoordinates[0];
-//                    [lineString appendFormat:@"%f %f%@", coord.longitude, coord.latitude, ((c == pointCount-1) ? @"" : @",")];
-//                    
-//                }
-                
-                [lineString appendFormat:@"%f %f,", routeCoordinates[0].longitude, routeCoordinates[0].latitude];
-                [lineString appendFormat:@"%f %f", routeCoordinates[pointCount-1].longitude, routeCoordinates[pointCount-1].latitude];
+
+                CLLocation *lastGoodLocation = [[CLLocation alloc] initWithLatitude:routeCoordinates[0].latitude longitude:routeCoordinates[0].longitude];
+                CLLocationCoordinate2D coord = lastGoodLocation.coordinate;
+                [lineString appendFormat:@"%f %f,", coord.longitude, coord.latitude];
+
+                NSInteger pointTotal = 0;
+                CGFloat maxDistanceInMeters = 8000;
+                for (int c=0; c < pointCount; c++)
+                {
+                    CLLocation *newLocation = [[CLLocation alloc] initWithLatitude:routeCoordinates[c].latitude longitude:routeCoordinates[c].longitude];
+                    if ([lastGoodLocation distanceFromLocation:newLocation] > maxDistanceInMeters || (c == pointCount-1) )
+                    {
+                        CLLocationCoordinate2D coord = newLocation.coordinate;
+                        [lineString appendFormat:@"%f %f%@", coord.longitude, coord.latitude, ((c == pointCount-1) ? @"" : @",")];
+                        lastGoodLocation = newLocation;
+                        pointTotal++;
+                    }
+                }
                 [lineString appendString:@")"];
                 
                 NSLog(@"LineString: %@", lineString);
+                NSLog(@"OldPoints:%d - ActualPoints: %d",pointCount, pointTotal);
                 //free the memory used by the C array when done with it...
                 free(routeCoordinates);
                 

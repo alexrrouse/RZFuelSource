@@ -63,6 +63,12 @@
         }
         return NO;
     }
+    else if ([key isEqualToString:@"open_date"]) { // For now we are just ignoring this.
+        return NO;
+    }
+    else if ([key isEqualToString:@"ev_network_ids"]) { // Don't care about this.
+        return NO;
+    }
     return YES;
 }
 
