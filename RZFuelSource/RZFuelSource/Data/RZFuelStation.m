@@ -9,5 +9,14 @@
 #import "RZFuelStation.h"
 
 @implementation RZFuelStation
+- (NSString *)title
+{
+    return [self.stationName copy];
+}
+
+- (CLLocationCoordinate2D)coordinate
+{
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
 
 @end
