@@ -8,6 +8,7 @@
 
 #import "RZAppDelegate.h"
 #import "RZMapViewController.h"
+#import "RZFuelWebService.h"
 
 @implementation RZAppDelegate
 
@@ -19,6 +20,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootNavController;
     [self.window makeKeyAndVisible];
+    
+    [[RZFuelWebService sharedInstance] fetchNearbyLocationWithLat:42.3581 lon:-71.0636 completionBlock:^(NSArray *objects, NSError *error) {
+        
+    }];
     
     return YES;
 }
