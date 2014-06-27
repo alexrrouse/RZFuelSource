@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RZFuelType.h"
 
+OBJC_EXTERN NSString* const kRZFuelAPIFuelTypeAll;
 OBJC_EXTERN NSString* const kRZFuelAPIFuelTypeBio;
 OBJC_EXTERN NSString* const kRZFuelAPIFuelTypeCompressedNaturalGas;
 OBJC_EXTERN NSString* const kRZFuelAPIFuelTypeEthanol;
@@ -22,5 +23,6 @@ OBJC_EXTERN NSString* const kRZFuelAPIFuelTypePetroleum;
 - (RZFuelType)fuelType;
 + (NSString *)descriptionForFuelType:(RZFuelType)fuelType;
 + (NSString *)shortDescriptionForFuelType:(RZFuelType)fuelType;
++ (NSString *)stringFromFuelType:(RZFuelType)type;
 
 @end

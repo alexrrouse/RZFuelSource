@@ -7,7 +7,6 @@
 //
 
 #import "NSString+FuelType.h"
-#import "RZFuelWebService.h"
 
 /* From API
  
@@ -19,16 +18,14 @@
  LNG	Liquefied Natural Gas
  LPG	Liquefied Petroleum Gas (Propane) */
 
-NSString* const kRZFuelAPIFuelTypeAll                   = @"all";
-NSString* const kRZFuelAPIFuelTypeBio                   = @"BD";
-NSString* const kRZFuelAPIFuelTypeCompressedNaturalGas  = @"CNG";
-NSString* const kRZFuelAPIFuelTypeEthanol               = @"E85";
-NSString* const kRZFuelAPIFuelTypeElectric              = @"ELEC";
-NSString* const kRZFuelAPIFuelTypeHydrogen              = @"HY";
-NSString* const kRZFuelAPIFuelTypeLiqiudNaturalGas      = @"LNG";
-NSString* const kRZFuelAPIFuelTypePetroleum             = @"LPG";
+NSString* const kRZFuelAPIFuelTypeBio                  = @"BD";
+NSString* const kRZFuelAPIFuelTypeCompressedNaturalGas = @"CNG";
+NSString* const kRZFuelAPIFuelTypeEthanol              = @"E85";
+NSString* const kRZFuelAPIFuelTypeElectric             = @"ELEC";
+NSString* const kRZFuelAPIFuelTypeHydrogen             = @"HY";
+NSString* const kRZFuelAPIFuelTypeLiqiudNaturalGas     = @"LNG";
+NSString* const kRZFuelAPIFuelTypePetroleum            = @"LPG";
 
-NSString* const kRZFuelFuelTypeAllDescription                     = @"All";
 NSString* const kRZFuelFuelTypeBioDescription                     = @"Biodiesel";
 NSString* const kRZFuelFuelTypeCompressedNaturalGasDescription    = @"Compressed Natural Gas";
 NSString* const kRZFuelFuelTypeEthanolDescription                 = @"Ethanol";
@@ -37,7 +34,6 @@ NSString* const kRZFuelFuelTypeHydrogenDescription                = @"Hydrogen";
 NSString* const kRZFuelFuelTypeLiqiudNaturalGasDescription        = @"Liquefied Natural Gas";
 NSString* const kRZFuelFuelTypePetroleumDescription               = @"Liquefied Petroleum Gas";
 
-NSString* const kRZFuelFuelTypeAllShortDescription                     = @"All";
 NSString* const kRZFuelFuelTypeBioShortDescription                     = @"Bio";
 NSString* const kRZFuelFuelTypeCompressedNaturalGasShortDescription    = @"CNG";
 NSString* const kRZFuelFuelTypeEthanolShortDescription                 = @"Ethanol";
@@ -52,10 +48,7 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
 {
     RZFuelType fuelType = RZFuelTypeUnknown;
     
-    if ([self isEqualToString:kRZFuelAPIFuelTypeAll]){
-        fuelType = RZFuelTypeAll;
-    }
-    else if ([self isEqualToString:kRZFuelAPIFuelTypeBio]) {
+    if ([self isEqualToString:kRZFuelAPIFuelTypeBio]) {
         fuelType = RZFuelTypeBioDiesel;
     }
     else if ([self isEqualToString:kRZFuelAPIFuelTypeCompressedNaturalGas]) {
@@ -85,9 +78,6 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     NSString *description = @"";
     
     switch (fuelType) {
-        case RZFuelTypeAll:
-            description = kRZFuelFuelTypeAllDescription;
-            break;
         case RZFuelTypeBioDiesel:
             description = kRZFuelFuelTypeBioDescription;
             break;
@@ -122,9 +112,6 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     NSString *description = @"";
     
     switch (fuelType) {
-        case RZFuelTypeAll:
-            description = kRZFuelFuelTypeAllDescription;
-            break;
         case RZFuelTypeBioDiesel:
             description = kRZFuelFuelTypeBioShortDescription;
             break;
@@ -152,43 +139,6 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     }
     
     return description;
-}
-
-+ (NSString *)stringFromFuelType:(RZFuelType)type
-{
-    NSString *ret = nil;
-    switch (type) {
-        case RZFuelTypeUnknown:
-            ret = kRZFuelAPIFuelTypeAll;
-            break;
-        case RZFuelTypeAll:
-            ret = kRZFuelAPIFuelTypeAll;
-            break;
-        case RZFuelTypeBioDiesel:
-            ret = kRZFuelAPIFuelTypeBio;
-            break;
-        case RZFuelTypeCompressedNaturalGas:
-            ret = kRZFuelAPIFuelTypeCompressedNaturalGas;
-            break;
-        case RZFuelTypeEthanol:
-            ret = kRZFuelAPIFuelTypeEthanol;
-            break;
-        case RZFuelTypeElectric:
-            ret = kRZFuelAPIFuelTypeElectric;
-            break;
-        case RZFuelTypeHydrogen:
-            ret = kRZFuelAPIFuelTypeHydrogen;
-            break;
-        case RZFuelTypeLiquidNaturalGas:
-            ret = kRZFuelAPIFuelTypeLiqiudNaturalGas;
-            break;
-        case RZFuelTypePetroleumGas:
-            ret = kRZFuelAPIFuelTypePetroleum;
-            break;
-        default:
-            break;
-    }
-    return ret;
 }
 
 @end

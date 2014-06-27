@@ -28,7 +28,6 @@ NSString* const kRZFuelAPIFuelTypeHydrogen              = @"HY";
 NSString* const kRZFuelAPIFuelTypeLiqiudNaturalGas      = @"LNG";
 NSString* const kRZFuelAPIFuelTypePetroleum             = @"LPG";
 
-NSString* const kRZFuelFuelTypeAllDescription                     = @"All";
 NSString* const kRZFuelFuelTypeBioDescription                     = @"Biodiesel";
 NSString* const kRZFuelFuelTypeCompressedNaturalGasDescription    = @"Compressed Natural Gas";
 NSString* const kRZFuelFuelTypeEthanolDescription                 = @"Ethanol";
@@ -37,7 +36,6 @@ NSString* const kRZFuelFuelTypeHydrogenDescription                = @"Hydrogen";
 NSString* const kRZFuelFuelTypeLiqiudNaturalGasDescription        = @"Liquefied Natural Gas";
 NSString* const kRZFuelFuelTypePetroleumDescription               = @"Liquefied Petroleum Gas";
 
-NSString* const kRZFuelFuelTypeAllShortDescription                     = @"All";
 NSString* const kRZFuelFuelTypeBioShortDescription                     = @"Bio";
 NSString* const kRZFuelFuelTypeCompressedNaturalGasShortDescription    = @"CNG";
 NSString* const kRZFuelFuelTypeEthanolShortDescription                 = @"Ethanol";
@@ -80,14 +78,12 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     return fuelType;
 }
 
+<<<<<<< HEAD
 + (NSString *)descriptionForFuelType:(RZFuelType)fuelType
 {
     NSString *description = @"";
     
     switch (fuelType) {
-        case RZFuelTypeAll:
-            description = kRZFuelFuelTypeAllDescription;
-            break;
         case RZFuelTypeBioDiesel:
             description = kRZFuelFuelTypeBioDescription;
             break;
@@ -122,9 +118,6 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     NSString *description = @"";
     
     switch (fuelType) {
-        case RZFuelTypeAll:
-            description = kRZFuelFuelTypeAllDescription;
-            break;
         case RZFuelTypeBioDiesel:
             description = kRZFuelFuelTypeBioShortDescription;
             break;
@@ -152,8 +145,7 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
     }
     
     return description;
-}
-
+=======
 + (NSString *)stringFromFuelType:(RZFuelType)type
 {
     NSString *ret = nil;
@@ -189,6 +181,7 @@ NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
             break;
     }
     return ret;
+>>>>>>> origin/master
 }
 
 @end

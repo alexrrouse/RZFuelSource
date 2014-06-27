@@ -11,6 +11,7 @@
 
 typedef NS_ENUM (NSUInteger, RZFuelType) {
     RZFuelTypeUnknown = 0,
+    RZFuelTypeAll,
     RZFuelTypeBioDiesel,
     RZFuelTypeCompressedNaturalGas,
     RZFuelTypeEthanol,

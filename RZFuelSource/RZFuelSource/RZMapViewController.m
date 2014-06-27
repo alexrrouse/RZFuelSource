@@ -8,8 +8,12 @@
 
 #import "RZMapViewController.h"
 
+// Services
+#import "RZFuelWebService.h"
+
 // Model Data
 #import "RZFuelType.h"
+#import "RZFuelStation.h"
 
 // Categories
 #import "NSString+FuelType.h"
@@ -22,12 +26,21 @@
 #import "REMenu.h"
 #import "REMenuItem.h"
 
-@interface RZMapViewController ()
+typedef enum : NSUInteger {
+    RZMapViewControllerQueryUserLocation,
+    RZMapViewControllerQueryMapLocation,
+    RZMapViewControllerQueryRoute,
+} RZMapViewControllerQuery;
+
+@interface RZMapViewController () <MKMapViewDelegate>
 
 @property (nonatomic, assign) RZFuelType  selectedFuelType;
 @property (nonatomic, strong) REMenu      *dropdownMenu;
 @property (nonatomic, strong) UIImageView *blurredImageView;
 @property (nonatomic, strong) NSArray     *fuelTypes;
+@property (nonatomic, strong) NSURLSessionDataTask      *queryTask;
+@property (nonatomic, assign) RZMapViewControllerQuery  queryType;
+@property (nonatomic, strong) NSArray                   *fuelStations;
 
 @end
 
@@ -49,16 +62,70 @@
     _selectedFuelType = RZFuelTypeElectric;
 }
 
+- (MKMapView *)mapView
+{
+    return (id)self.view;
+}
+
+- (void)focusOn:(id)coordinateOrPolyline
+{
+    if (self.queryTask) {
+        return;
+    }
+    
+    if ([coordinateOrPolyline isKindOfClass:[NSValue class]]) {
+        CLLocationCoordinate2D coordinate = [(NSValue *)coordinateOrPolyline MKCoordinateValue];
+        self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithLat:coordinate.latitude
+                                                                                   lon:coordinate.longitude
+                                                                       completionBlock:^(NSArray *objects, NSError *error)
+                          {
+                              if (error) {
+                                  [[[UIAlertView alloc] initWithTitle:@"Access Problem!"
+                                                              message:@"Encountered an issue obtaining station data."
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil] show];
+                              } else {
+                                  [self loadFuelStations:objects];
+                              }
+                              self.queryTask = nil;
+                          }];
+
+    }
+}
+
+- (void)focusOnCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    [self focusOn:[NSValue valueWithMKCoordinate:coordinate]];
+}
+
+- (void)loadFuelStations:(NSArray *)fuelStations
+{
+    if (self.fuelStations) {
+        [self.mapView removeAnnotations:self.fuelStations];
+        self.fuelStations = nil;
+    }
+    self.fuelStations = fuelStations;
+    if (self.fuelStations) {
+        [self.mapView showAnnotations:self.fuelStations animated:YES];
+    }
+}
+
 #pragma mark - ViewController Lifecycle
 
-- (void)viewDidLoad
+- (void)loadView
 {
-    [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.view = [[MKMapView alloc] initWithFrame:CGRectZero];
+    self.mapView.delegate = self;
+
+    self.navigationItem.rightBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
+    
+    self.mapView.showsUserLocation = YES;
+    self.queryType = RZMapViewControllerQueryUserLocation;
     
     [self setTitle:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
     
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"FUELTYPE" style:UIBarButtonItemStylePlain target:self action:@selector(fuelTypeFilterWithSender:)]];
+    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"FUELTYPE" style:UIBarButtonItemStylePlain target:self action:@selector(fuelTypeFilterWithSender:)]];
 }
 
 #pragma mark - Overidden Properties
@@ -152,6 +219,35 @@
         [self.dropdownMenu closeWithCompletion:^{
             [weakSelf removeBlur];
         }];
+    }
+}
+
+#pragma mark MKMapViewDelegate - DataSource
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"Oh, Hi");
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    static NSString *pinReuseIdentifier = @"FuelSource";
+    MKAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinReuseIdentifier];
+    return view;
+}
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    if (self.queryType == RZMapViewControllerQueryUserLocation) {
+        [self focusOnCoordinate:self.mapView.userLocation.coordinate];
     }
 }
 

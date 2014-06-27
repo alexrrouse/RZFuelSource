@@ -85,6 +85,7 @@
 		E1013F56195DC264009BDCA4 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F50195DC264009BDCA4 /* REMenuItem.m */; };
 		E1013F5D195DC630009BDCA4 /* RZFuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5C195DC630009BDCA4 /* RZFuelType.m */; };
 		E1013F60195DD454009BDCA4 /* UIColor+fuelSourceColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */; };
+		E1013F63195DE689009BDCA4 /* REMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F62195DE689009BDCA4 /* REMenuItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,8 @@
 		E1013F5C195DC630009BDCA4 /* RZFuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelType.m; path = Data/RZFuelType.m; sourceTree = "<group>"; };
 		E1013F5E195DD454009BDCA4 /* UIColor+fuelSourceColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+fuelSourceColors.h"; path = "Categories/UIColor+fuelSourceColors.h"; sourceTree = "<group>"; };
 		E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+fuelSourceColors.m"; path = "Categories/UIColor+fuelSourceColors.m"; sourceTree = "<group>"; };
+		E1013F61195DE689009BDCA4 /* REMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItemView.h; sourceTree = "<group>"; };
+		E1013F62195DE689009BDCA4 /* REMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItemView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -858,6 +861,8 @@
 				E1013F4E195DC264009BDCA4 /* REMenuContainerView.m */,
 				E1013F4F195DC264009BDCA4 /* REMenuItem.h */,
 				E1013F50195DC264009BDCA4 /* REMenuItem.m */,
+				E1013F61195DE689009BDCA4 /* REMenuItemView.h */,
+				E1013F62195DE689009BDCA4 /* REMenuItemView.m */,
 			);
 			name = REMenu;
 			path = ../External/REMenu/REMenu;
@@ -1013,6 +1018,7 @@
 				98414A63195DB32500DC2FDD /* RZDispatch.m in Sources */,
 				98414A49195DB32500DC2FDD /* UIViewController+RZKeyboardWatcher.m in Sources */,
 				98414A44195DB32500DC2FDD /* UIImageView+RZAXMaintainImageColors.m in Sources */,
+				E1013F63195DE689009BDCA4 /* REMenuItemView.m in Sources */,
 				E1013F54195DC264009BDCA4 /* REMenu.m in Sources */,
 				98414A7F195DB34800DC2FDD /* AFHTTPRequestOperation.m in Sources */,
 				98414A83195DB34800DC2FDD /* AFSecurityPolicy.m in Sources */,

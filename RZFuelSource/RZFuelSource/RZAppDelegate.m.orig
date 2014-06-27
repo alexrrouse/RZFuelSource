@@ -27,11 +27,13 @@
     self.window.rootViewController = rootNavController;
     [self.window makeKeyAndVisible];
     
+<<<<<<< HEAD
     [RZFuelSourceAppearance setDefaultThemes];
-
+=======
     [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:RZFuelTypeElectric lat:42.3581 lon:-71.0636 completionBlock:^(NSArray *objects, NSError *error) {
         
     }];
+>>>>>>> origin/master
     
     return YES;
 }
