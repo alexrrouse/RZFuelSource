@@ -34,15 +34,7 @@
 
 - (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request completion:(RZDirectionsServiceLineStringBlock)completion
 {
-    // WHYYYYY APPLE WHYYYYY
-    MKDirectionsRequest * newRequest = [[MKDirectionsRequest alloc] init];
-    newRequest.transportType = MKDirectionsTransportTypeAutomobile;
-    newRequest.requestsAlternateRoutes = NO;
-    newRequest.source = request.source;
-    newRequest.destination = request.destination;
-    
     [self directionsFromSourceLocation:request.source destinationLocation:request.destination completion:completion];
-    
 }
 
 - (void)directionsFromSourceLocation:(MKMapItem *)source destinationLocation:(MKMapItem *)destination completion:(RZDirectionsServiceLineStringBlock)completion
@@ -58,22 +50,17 @@
     [drivingDirections calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
         if (error == nil)
         {
-            NSArray *routes = [response routes];
             MKRoute *route = [response.routes firstObject];
             
             NSMutableString *lineString = [NSMutableString stringWithString:@"LINESTRING("];
             NSUInteger pointCount = route.polyline.pointCount;
             
             //allocate a C array to hold this many points/coordinates...
-            CLLocationCoordinate2D *routeCoordinates
-            = malloc(pointCount * sizeof(CLLocationCoordinate2D));
+            CLLocationCoordinate2D *routeCoordinates = malloc(pointCount * sizeof(CLLocationCoordinate2D));
             
             //get the coordinates (all of them)...
             [route.polyline getCoordinates:routeCoordinates
                                      range:NSMakeRange(0, pointCount)];
-            
-            //this part just shows how to use the results...
-            NSLog(@"route pointCount = %d", pointCount);
             
             CLLocation *lastGoodLocation = [[CLLocation alloc] initWithLatitude:routeCoordinates[0].latitude longitude:routeCoordinates[0].longitude];
             CLLocationCoordinate2D coord = lastGoodLocation.coordinate;
