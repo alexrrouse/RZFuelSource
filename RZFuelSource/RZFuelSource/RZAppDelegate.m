@@ -67,7 +67,6 @@
     if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
         MKDirectionsRequest* request = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
         [self.rootViewController focusOnDirectionRequest:request];
-
         return YES;
     }
     else {
