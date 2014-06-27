@@ -16,6 +16,7 @@
 @end
 
 @implementation RZFuelStation
+
 - (NSString *)title
 {
     return [self.stationName copy];
@@ -24,6 +25,14 @@
 - (CLLocationCoordinate2D)coordinate
 {
     return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+- (BOOL)isEqual:(RZFuelStation *)other
+{
+    if ([other isKindOfClass:[RZFuelStation class]] == NO) {
+        return NO;
+    }
+    return [self.stationID isEqualToString:other.stationID];
 }
 
 + (NSDictionary *)customMappings
