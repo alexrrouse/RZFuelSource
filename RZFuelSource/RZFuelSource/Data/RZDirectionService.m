@@ -23,7 +23,7 @@
     return s_manager;
 }
 
-- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request
+- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request withCompletionBlock:(RZDirectionsServiceLineStringBlock)completion
 {
     // WHYYYYY APPLE WHYYYYY
     MKDirectionsRequest * newRequest = [[MKDirectionsRequest alloc] init];
@@ -70,10 +70,13 @@
                 //free the memory used by the C array when done with it...
                 free(routeCoordinates);
                 
+
                 //@"LINESTRING(-74.0 40.7, -87.63 41.87, -104.98 39.76)"
-                [[RZFuelWebService sharedInstance] fetchNearbyLocationsWithFuelType:RZFuelTypeAll route:lineString completionBlock:^(NSArray *objects, NSError *error) {
-                    
-                }];
+                if (completion)
+                {
+                    completion(lineString, route, error);
+                }
+                
             }
         }];
 

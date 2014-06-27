@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class MKRoute;
+
+typedef void(^RZDirectionsServiceLineStringBlock)(NSString *lineString, MKRoute *route, NSError *error);
+
 @class MKDirectionsRequest;
 @interface RZDirectionService : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request;
+- (void)directionsFromDirectionRequest:(MKDirectionsRequest *)request withCompletionBlock:(RZDirectionsServiceLineStringBlock)completion;
 
 @end
