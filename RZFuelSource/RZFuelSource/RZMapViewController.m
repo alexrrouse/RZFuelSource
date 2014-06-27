@@ -78,7 +78,7 @@ typedef enum : NSUInteger {
     if (self.queryTask) {
         [self.queryTask cancel];
     }
-    [[RZDirectionService sharedInstance] directionsFromDirectionRequest:request withCompletionBlock:^(NSString *lineString, MKRoute *route, NSError *error) {
+    [[RZDirectionService sharedInstance] directionsFromDirectionRequest:request completion:^(NSString *lineString, MKRoute *route, NSError *error) {
         self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationsWithFuelType:self.selectedFuelType
                                                                                        route:lineString
                                                                              completionBlock:^(NSArray *objects, NSError *error)
