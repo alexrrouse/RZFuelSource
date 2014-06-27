@@ -25,6 +25,7 @@
 
 // Views
 #import "RZTitleView.h"
+#import "RZFuelQueryStateView.h"
 
 // Third Party
 #import "REMenu.h"
@@ -54,6 +55,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSTimer                   *panReloadTimer;
 @property (nonatomic, strong) RZTitleView *navTitleView;
 @property (nonatomic, assign) RZMapViewControllerDisplayState displayState;
+@property (nonatomic, strong) RZFuelQueryStateView *queryView;
 @end
 
 @implementation RZMapViewController
@@ -86,6 +88,8 @@ typedef enum : NSUInteger {
     }
     self.displayState = kRZMapViewControllerDisplayStateRoute;
     [self.navTitleView.titleLabel setText:[@"Route" uppercaseString]];
+    [self.queryView setState:RZFuelQueryStateWaiting animated:YES];
+
     [[RZDirectionService sharedInstance] directionsFromDirectionRequest:request completion:^(NSString *lineString, MKRoute *route, NSError *error) {
         self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationsWithFuelType:self.selectedFuelType
                                                                                        route:lineString
@@ -98,6 +102,7 @@ typedef enum : NSUInteger {
                                   [self loadFuelStations:objects];
                               }
                               self.queryTask = nil;
+                              [self.queryView setState:RZFuelQueryStateIsGood animated:YES];
                           }];
     }];
 }
@@ -107,7 +112,7 @@ typedef enum : NSUInteger {
     if (self.queryTask || self.displayState == kRZMapViewControllerDisplayStateRoute) {
         return;
     }
-    
+    [self.queryView setState:RZFuelQueryStateQueryActive animated:YES];
     self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:self.selectedFuelType
                                                                                     lat:coordinate.latitude
                                                                                     lon:coordinate.longitude
@@ -119,6 +124,8 @@ typedef enum : NSUInteger {
                               [self loadFuelStations:objects];
                           }
                           self.queryTask = nil;
+
+                          [self.queryView setState:RZFuelQueryStateIsGood animated:YES];
                       }];
 }
 
@@ -171,17 +178,18 @@ typedef enum : NSUInteger {
 {
     [super touchesBegan:touches withEvent:event];
     self.queryType = RZMapViewControllerQueryMapLocation;
+    [self.queryView setState:RZFuelQueryStateWaiting animated:YES];
 }
 
 - (void)loadView
 {
+    self.queryType = RZMapViewControllerQueryUserLocation;
     self.view = [[MKMapView alloc] initWithFrame:CGRectZero];
     self.mapView.delegate = self;
-
-    self.navigationItem.rightBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
-    
     self.mapView.showsUserLocation = YES;
-    self.queryType = RZMapViewControllerQueryUserLocation;
+    
+    self.queryView = [[RZFuelQueryStateView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.queryView];
     
     self.navTitleView = (RZTitleView *)[UIView rz_loadFromNibNamed:NSStringFromClass([RZTitleView class])];
     [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
@@ -297,7 +305,7 @@ typedef enum : NSUInteger {
 {
     [self.panReloadTimer invalidate];
     if (self.queryType == RZMapViewControllerQueryMapLocation) {
-        self.panReloadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateFocusDueToMapChange) userInfo:nil repeats:NO];
+        self.panReloadTimer = [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(updateFocusDueToMapChange) userInfo:nil repeats:NO];
     }
 }
 

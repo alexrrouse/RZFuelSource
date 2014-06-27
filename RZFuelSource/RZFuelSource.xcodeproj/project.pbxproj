@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		868E876E195E03F800F363C6 /* RZFuelQueryStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 868E876D195E03F800F363C6 /* RZFuelQueryStateView.m */; };
+		868E8770195E057E00F363C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868E876F195E057E00F363C6 /* QuartzCore.framework */; };
 		984149AC195DB2DC00DC2FDD /* RZFuelStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 984149AB195DB2DC00DC2FDD /* RZFuelStation.m */; };
 		98414A35195DB32500DC2FDD /* CAAnimation+RZBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 984149B3195DB32500DC2FDD /* CAAnimation+RZBlocks.m */; };
 		98414A36195DB32500DC2FDD /* NSObject+RZBlockKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 984149B6195DB32500DC2FDD /* NSObject+RZBlockKVO.m */; };
@@ -103,6 +105,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		868E876C195E03F800F363C6 /* RZFuelQueryStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelQueryStateView.h; path = Views/RZFuelQueryStateView.h; sourceTree = "<group>"; };
+		868E876D195E03F800F363C6 /* RZFuelQueryStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelQueryStateView.m; path = Views/RZFuelQueryStateView.m; sourceTree = "<group>"; };
+		868E876F195E057E00F363C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		984149AA195DB2DC00DC2FDD /* RZFuelStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelStation.h; path = Data/RZFuelStation.h; sourceTree = "<group>"; };
 		984149AB195DB2DC00DC2FDD /* RZFuelStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelStation.m; path = Data/RZFuelStation.m; sourceTree = "<group>"; };
 		984149B2195DB32500DC2FDD /* CAAnimation+RZBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+RZBlocks.h"; sourceTree = "<group>"; };
@@ -270,6 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868E8770195E057E00F363C6 /* QuartzCore.framework in Frameworks */,
 				98414A8C195DB38300DC2FDD /* MapKit.framework in Frameworks */,
 				E1013F01195DAF56009BDCA4 /* CoreGraphics.framework in Frameworks */,
 				E1013F03195DAF56009BDCA4 /* UIKit.framework in Frameworks */,
@@ -772,6 +778,7 @@
 		E1013EFD195DAF56009BDCA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868E876F195E057E00F363C6 /* QuartzCore.framework */,
 				98414A8B195DB38300DC2FDD /* MapKit.framework */,
 				E1013EFE195DAF56009BDCA4 /* Foundation.framework */,
 				E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */,
@@ -888,6 +895,8 @@
 				E1013F65195DECA2009BDCA4 /* RZTitleView.h */,
 				E1013F66195DECA2009BDCA4 /* RZTitleView.m */,
 				E1013F68195DEDD8009BDCA4 /* RZTitleView.xib */,
+				868E876C195E03F800F363C6 /* RZFuelQueryStateView.h */,
+				868E876D195E03F800F363C6 /* RZFuelQueryStateView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1026,6 +1035,7 @@
 				98414A3A195DB32500DC2FDD /* NSString+RZStringFormatting.m in Sources */,
 				E1013F55195DC264009BDCA4 /* REMenuContainerView.m in Sources */,
 				E1013F56195DC264009BDCA4 /* REMenuItem.m in Sources */,
+				868E876E195E03F800F363C6 /* RZFuelQueryStateView.m in Sources */,
 				98414A8A195DB36900DC2FDD /* RZFuelWebService.m in Sources */,
 				98414A35195DB32500DC2FDD /* CAAnimation+RZBlocks.m in Sources */,
 				98414A81195DB34800DC2FDD /* AFHTTPSessionManager.m in Sources */,
