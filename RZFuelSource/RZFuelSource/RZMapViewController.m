@@ -189,11 +189,13 @@ typedef enum : NSUInteger {
     self.mapView.showsUserLocation = YES;
     
     self.queryView = [[RZFuelQueryStateView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.queryView];
     
     self.navTitleView = (RZTitleView *)[UIView rz_loadFromNibNamed:NSStringFromClass([RZTitleView class])];
     [self.navTitleView.titleLabel setText:[[NSString shortDescriptionForFuelType:self.selectedFuelType] uppercaseString]];
     [self.navTitleView.titleButton addTarget:self action:@selector(fuelTypeFilterWithSender:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.queryView];
+    self.navigationItem.rightBarButtonItem = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
     [[self navigationItem] setTitleView:self.navTitleView];
 }
 
