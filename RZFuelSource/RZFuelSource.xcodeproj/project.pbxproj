@@ -78,6 +78,13 @@
 		E1013F28195DAF56009BDCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1013F26195DAF56009BDCA4 /* InfoPlist.strings */; };
 		E1013F2A195DAF56009BDCA4 /* RZFuelSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */; };
 		E1013F43195DB818009BDCA4 /* NSString+FuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F42195DB818009BDCA4 /* NSString+FuelType.m */; };
+		E1013F47195DC180009BDCA4 /* RZFuelSourceAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F46195DC180009BDCA4 /* RZFuelSourceAppearance.m */; };
+		E1013F53195DC264009BDCA4 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F4A195DC264009BDCA4 /* RECommonFunctions.m */; };
+		E1013F54195DC264009BDCA4 /* REMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F4C195DC264009BDCA4 /* REMenu.m */; };
+		E1013F55195DC264009BDCA4 /* REMenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F4E195DC264009BDCA4 /* REMenuContainerView.m */; };
+		E1013F56195DC264009BDCA4 /* REMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F50195DC264009BDCA4 /* REMenuItem.m */; };
+		E1013F5D195DC630009BDCA4 /* RZFuelType.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5C195DC630009BDCA4 /* RZFuelType.m */; };
+		E1013F60195DD454009BDCA4 /* UIColor+fuelSourceColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,7 +236,20 @@
 		E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZFuelSourceTests.m; sourceTree = "<group>"; };
 		E1013F41195DB818009BDCA4 /* NSString+FuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+FuelType.h"; path = "Categories/NSString+FuelType.h"; sourceTree = "<group>"; };
 		E1013F42195DB818009BDCA4 /* NSString+FuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+FuelType.m"; path = "Categories/NSString+FuelType.m"; sourceTree = "<group>"; };
-		E1013F44195DB885009BDCA4 /* RZFuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelType.h; path = Data/RZFuelType.h; sourceTree = "<group>"; };
+		E1013F45195DC180009BDCA4 /* RZFuelSourceAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelSourceAppearance.h; path = Application/RZFuelSourceAppearance.h; sourceTree = "<group>"; };
+		E1013F46195DC180009BDCA4 /* RZFuelSourceAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelSourceAppearance.m; path = Application/RZFuelSourceAppearance.m; sourceTree = "<group>"; };
+		E1013F49195DC264009BDCA4 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		E1013F4A195DC264009BDCA4 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		E1013F4B195DC264009BDCA4 /* REMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenu.h; sourceTree = "<group>"; };
+		E1013F4C195DC264009BDCA4 /* REMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenu.m; sourceTree = "<group>"; };
+		E1013F4D195DC264009BDCA4 /* REMenuContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuContainerView.h; sourceTree = "<group>"; };
+		E1013F4E195DC264009BDCA4 /* REMenuContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuContainerView.m; sourceTree = "<group>"; };
+		E1013F4F195DC264009BDCA4 /* REMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REMenuItem.h; sourceTree = "<group>"; };
+		E1013F50195DC264009BDCA4 /* REMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REMenuItem.m; sourceTree = "<group>"; };
+		E1013F5B195DC630009BDCA4 /* RZFuelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelType.h; path = Data/RZFuelType.h; sourceTree = "<group>"; };
+		E1013F5C195DC630009BDCA4 /* RZFuelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelType.m; path = Data/RZFuelType.m; sourceTree = "<group>"; };
+		E1013F5E195DD454009BDCA4 /* UIColor+fuelSourceColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+fuelSourceColors.h"; path = "Categories/UIColor+fuelSourceColors.h"; sourceTree = "<group>"; };
+		E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+fuelSourceColors.m"; path = "Categories/UIColor+fuelSourceColors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +280,8 @@
 		984149A9195DB2BE00DC2FDD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E1013F44195DB885009BDCA4 /* RZFuelType.h */,
+				E1013F5B195DC630009BDCA4 /* RZFuelType.h */,
+				E1013F5C195DC630009BDCA4 /* RZFuelType.m */,
 				984149AA195DB2DC00DC2FDD /* RZFuelStation.h */,
 				984149AB195DB2DC00DC2FDD /* RZFuelStation.m */,
 				98414A88195DB36900DC2FDD /* RZFuelWebService.h */,
@@ -272,6 +293,7 @@
 		984149AD195DB2E300DC2FDD /* External */ = {
 			isa = PBXGroup;
 			children = (
+				E1013F48195DC264009BDCA4 /* REMenu */,
 				98414A6B195DB34800DC2FDD /* AFNetworking */,
 				98414A64195DB33800DC2FDD /* RZImport */,
 				984149AF195DB32500DC2FDD /* RZUtils */,
@@ -747,9 +769,9 @@
 		E1013F04195DAF56009BDCA4 /* RZFuelSource */ = {
 			isa = PBXGroup;
 			children = (
+				E1013F34195DB01F009BDCA4 /* Application */,
 				E1013F40195DB7E8009BDCA4 /* Categories */,
 				984149A9195DB2BE00DC2FDD /* Data */,
-				E1013F34195DB01F009BDCA4 /* Application */,
 				E1013F35195DB024009BDCA4 /* View Controllers */,
 				E1013F16195DAF56009BDCA4 /* Images.xcassets */,
 				E1013F05195DAF56009BDCA4 /* Supporting Files */,
@@ -800,6 +822,8 @@
 			children = (
 				E1013F0D195DAF56009BDCA4 /* RZAppDelegate.h */,
 				E1013F0E195DAF56009BDCA4 /* RZAppDelegate.m */,
+				E1013F45195DC180009BDCA4 /* RZFuelSourceAppearance.h */,
+				E1013F46195DC180009BDCA4 /* RZFuelSourceAppearance.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -817,8 +841,26 @@
 			children = (
 				E1013F41195DB818009BDCA4 /* NSString+FuelType.h */,
 				E1013F42195DB818009BDCA4 /* NSString+FuelType.m */,
+				E1013F5E195DD454009BDCA4 /* UIColor+fuelSourceColors.h */,
+				E1013F5F195DD454009BDCA4 /* UIColor+fuelSourceColors.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		E1013F48195DC264009BDCA4 /* REMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F49195DC264009BDCA4 /* RECommonFunctions.h */,
+				E1013F4A195DC264009BDCA4 /* RECommonFunctions.m */,
+				E1013F4B195DC264009BDCA4 /* REMenu.h */,
+				E1013F4C195DC264009BDCA4 /* REMenu.m */,
+				E1013F4D195DC264009BDCA4 /* REMenuContainerView.h */,
+				E1013F4E195DC264009BDCA4 /* REMenuContainerView.m */,
+				E1013F4F195DC264009BDCA4 /* REMenuItem.h */,
+				E1013F50195DC264009BDCA4 /* REMenuItem.m */,
+			);
+			name = REMenu;
+			path = ../External/REMenu/REMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -944,6 +986,8 @@
 				E1013F43195DB818009BDCA4 /* NSString+FuelType.m in Sources */,
 				98414A40195DB32500DC2FDD /* UIImage+RZAverageColor.m in Sources */,
 				98414A3A195DB32500DC2FDD /* NSString+RZStringFormatting.m in Sources */,
+				E1013F55195DC264009BDCA4 /* REMenuContainerView.m in Sources */,
+				E1013F56195DC264009BDCA4 /* REMenuItem.m in Sources */,
 				98414A8A195DB36900DC2FDD /* RZFuelWebService.m in Sources */,
 				98414A35195DB32500DC2FDD /* CAAnimation+RZBlocks.m in Sources */,
 				98414A81195DB34800DC2FDD /* AFHTTPSessionManager.m in Sources */,
@@ -951,7 +995,9 @@
 				98414A47195DB32500DC2FDD /* UIView+RZBorders.m in Sources */,
 				98414A45195DB32500DC2FDD /* UITableViewCell+RZCellStyling.m in Sources */,
 				98414A3E195DB32500DC2FDD /* UIColor+RZExtensions.m in Sources */,
+				E1013F60195DD454009BDCA4 /* UIColor+fuelSourceColors.m in Sources */,
 				98414A85195DB34800DC2FDD /* AFURLRequestSerialization.m in Sources */,
+				E1013F5D195DC630009BDCA4 /* RZFuelType.m in Sources */,
 				98414A4A195DB32500DC2FDD /* RZAnimatedCountingLabel.m in Sources */,
 				98414A86195DB34800DC2FDD /* AFURLResponseSerialization.m in Sources */,
 				98414A84195DB34800DC2FDD /* AFURLConnectionOperation.m in Sources */,
@@ -961,10 +1007,13 @@
 				98414A82195DB34800DC2FDD /* AFNetworkReachabilityManager.m in Sources */,
 				98414A5A195DB32500DC2FDD /* RZSegmentViewController.m in Sources */,
 				98414A43195DB32500DC2FDD /* UIImage+RZStretchHelpers.m in Sources */,
+				E1013F53195DC264009BDCA4 /* RECommonFunctions.m in Sources */,
 				98414A57195DB32500DC2FDD /* RZLocationService.m in Sources */,
+				E1013F47195DC180009BDCA4 /* RZFuelSourceAppearance.m in Sources */,
 				98414A63195DB32500DC2FDD /* RZDispatch.m in Sources */,
 				98414A49195DB32500DC2FDD /* UIViewController+RZKeyboardWatcher.m in Sources */,
 				98414A44195DB32500DC2FDD /* UIImageView+RZAXMaintainImageColors.m in Sources */,
+				E1013F54195DC264009BDCA4 /* REMenu.m in Sources */,
 				98414A7F195DB34800DC2FDD /* AFHTTPRequestOperation.m in Sources */,
 				98414A83195DB34800DC2FDD /* AFSecurityPolicy.m in Sources */,
 				98414A42195DB32500DC2FDD /* UIImage+RZSnapshotHelpers.m in Sources */,

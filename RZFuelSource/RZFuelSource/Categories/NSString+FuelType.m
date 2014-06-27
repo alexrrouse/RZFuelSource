@@ -26,6 +26,22 @@ NSString* const kRZFuelAPIFuelTypeHydrogen             = @"HY";
 NSString* const kRZFuelAPIFuelTypeLiqiudNaturalGas     = @"LNG";
 NSString* const kRZFuelAPIFuelTypePetroleum            = @"LPG";
 
+NSString* const kRZFuelFuelTypeBioDescription                     = @"Biodiesel";
+NSString* const kRZFuelFuelTypeCompressedNaturalGasDescription    = @"Compressed Natural Gas";
+NSString* const kRZFuelFuelTypeEthanolDescription                 = @"Ethanol";
+NSString* const kRZFuelFuelTypeElectricDescription                = @"Electric";
+NSString* const kRZFuelFuelTypeHydrogenDescription                = @"Hydrogen";
+NSString* const kRZFuelFuelTypeLiqiudNaturalGasDescription        = @"Liquefied Natural Gas";
+NSString* const kRZFuelFuelTypePetroleumDescription               = @"Liquefied Petroleum Gas";
+
+NSString* const kRZFuelFuelTypeBioShortDescription                     = @"Bio";
+NSString* const kRZFuelFuelTypeCompressedNaturalGasShortDescription    = @"CNG";
+NSString* const kRZFuelFuelTypeEthanolShortDescription                 = @"Ethanol";
+NSString* const kRZFuelFuelTypeElectricShortDescription                = @"Electric";
+NSString* const kRZFuelFuelTypeHydrogenShortDescription                = @"Hydrogen";
+NSString* const kRZFuelFuelTypeLiqiudNaturalGasShortDescription        = @"LNG";
+NSString* const kRZFuelFuelTypePetroleumShortDescription               = @"LPG";
+
 @implementation NSString (FuelType)
 
 - (RZFuelType)fuelType
@@ -55,6 +71,74 @@ NSString* const kRZFuelAPIFuelTypePetroleum            = @"LPG";
     }
     
     return fuelType;
+}
+
++ (NSString *)descriptionForFuelType:(RZFuelType)fuelType
+{
+    NSString *description = @"";
+    
+    switch (fuelType) {
+        case RZFuelTypeBioDiesel:
+            description = kRZFuelFuelTypeBioDescription;
+            break;
+        case RZFuelTypeElectric:
+            description = kRZFuelFuelTypeElectricDescription;
+            break;
+        case RZFuelTypeCompressedNaturalGas:
+            description = kRZFuelFuelTypeCompressedNaturalGasDescription;
+            break;
+        case RZFuelTypeEthanol:
+            description = kRZFuelFuelTypeEthanolDescription;
+            break;
+        case RZFuelTypeHydrogen:
+            description = kRZFuelFuelTypeHydrogenDescription;
+            break;
+        case RZFuelTypeLiquidNaturalGas:
+            description = kRZFuelFuelTypeLiqiudNaturalGasDescription;
+            break;
+        case RZFuelTypePetroleumGas:
+            description = kRZFuelFuelTypePetroleumDescription;
+            break;
+        case RZFuelTypeUnknown:
+            description = @"";
+            break;
+    }
+    
+    return description;
+}
+
++ (NSString *)shortDescriptionForFuelType:(RZFuelType)fuelType
+{
+    NSString *description = @"";
+    
+    switch (fuelType) {
+        case RZFuelTypeBioDiesel:
+            description = kRZFuelFuelTypeBioShortDescription;
+            break;
+        case RZFuelTypeElectric:
+            description = kRZFuelFuelTypeElectricShortDescription;
+            break;
+        case RZFuelTypeCompressedNaturalGas:
+            description = kRZFuelFuelTypeCompressedNaturalGasShortDescription;
+            break;
+        case RZFuelTypeEthanol:
+            description = kRZFuelFuelTypeEthanolShortDescription;
+            break;
+        case RZFuelTypeHydrogen:
+            description = kRZFuelFuelTypeHydrogenShortDescription;
+            break;
+        case RZFuelTypeLiquidNaturalGas:
+            description = kRZFuelFuelTypeLiqiudNaturalGasShortDescription;
+            break;
+        case RZFuelTypePetroleumGas:
+            description = kRZFuelFuelTypePetroleumShortDescription;
+            break;
+        case RZFuelTypeUnknown:
+            description = @"";
+            break;
+    }
+    
+    return description;
 }
 
 @end

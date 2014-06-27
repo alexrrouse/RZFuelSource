@@ -20,5 +20,7 @@ OBJC_EXTERN NSString* const kRZFuelAPIFuelTypePetroleum;
 @interface NSString (FuelType)
 
 - (RZFuelType)fuelType;
++ (NSString *)descriptionForFuelType:(RZFuelType)fuelType;
++ (NSString *)shortDescriptionForFuelType:(RZFuelType)fuelType;
 
 @end

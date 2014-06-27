@@ -20,4 +20,8 @@ typedef NS_ENUM (NSUInteger, RZFuelType) {
     RZFuelTypePetroleumGas
 };
 
+OBJC_EXTERN const NSUInteger kRZFuelTypeFirstObject;
+OBJC_EXTERN const NSUInteger kRZFuelTypeLastObject;
+OBJC_EXTERN const NSUInteger kRZFuelTypeNumObjects;
+
 #endif

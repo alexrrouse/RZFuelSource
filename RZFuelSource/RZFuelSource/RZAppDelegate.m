@@ -7,7 +7,13 @@
 //
 
 #import "RZAppDelegate.h"
+
+// View Controllers
 #import "RZMapViewController.h"
+
+// Utilities
+#import "RZFuelSourceAppearance.h"
+
 
 @implementation RZAppDelegate
 
@@ -19,6 +25,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootNavController;
     [self.window makeKeyAndVisible];
+    
+    [RZFuelSourceAppearance setDefaultThemes];
     
     return YES;
 }
