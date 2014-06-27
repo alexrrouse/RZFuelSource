@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E1013EFF195DAF56009BDCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013EFE195DAF56009BDCA4 /* Foundation.framework */; };
+		E1013F01195DAF56009BDCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */; };
+		E1013F03195DAF56009BDCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F02195DAF56009BDCA4 /* UIKit.framework */; };
+		E1013F09195DAF56009BDCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1013F07195DAF56009BDCA4 /* InfoPlist.strings */; };
+		E1013F0B195DAF56009BDCA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F0A195DAF56009BDCA4 /* main.m */; };
+		E1013F0F195DAF56009BDCA4 /* RZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F0E195DAF56009BDCA4 /* RZAppDelegate.m */; };
+		E1013F15195DAF56009BDCA4 /* RZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F14195DAF56009BDCA4 /* RZMapViewController.m */; };
+		E1013F17195DAF56009BDCA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1013F16195DAF56009BDCA4 /* Images.xcassets */; };
+		E1013F1E195DAF56009BDCA4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F1D195DAF56009BDCA4 /* XCTest.framework */; };
+		E1013F1F195DAF56009BDCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013EFE195DAF56009BDCA4 /* Foundation.framework */; };
+		E1013F20195DAF56009BDCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F02195DAF56009BDCA4 /* UIKit.framework */; };
+		E1013F28195DAF56009BDCA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1013F26195DAF56009BDCA4 /* InfoPlist.strings */; };
+		E1013F2A195DAF56009BDCA4 /* RZFuelSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1013F21195DAF56009BDCA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1013EF3195DAF55009BDCA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1013EFA195DAF56009BDCA4;
+			remoteInfo = RZFuelSource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E1013EFB195DAF56009BDCA4 /* RZFuelSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZFuelSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1013EFE195DAF56009BDCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E1013F02195DAF56009BDCA4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E1013F06195DAF56009BDCA4 /* RZFuelSource-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RZFuelSource-Info.plist"; sourceTree = "<group>"; };
+		E1013F08195DAF56009BDCA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1013F0A195DAF56009BDCA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E1013F0C195DAF56009BDCA4 /* RZFuelSource-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RZFuelSource-Prefix.pch"; sourceTree = "<group>"; };
+		E1013F0D195DAF56009BDCA4 /* RZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZAppDelegate.h; sourceTree = "<group>"; };
+		E1013F0E195DAF56009BDCA4 /* RZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZAppDelegate.m; sourceTree = "<group>"; };
+		E1013F13195DAF56009BDCA4 /* RZMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMapViewController.h; sourceTree = "<group>"; };
+		E1013F14195DAF56009BDCA4 /* RZMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZMapViewController.m; sourceTree = "<group>"; };
+		E1013F16195DAF56009BDCA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E1013F1C195DAF56009BDCA4 /* RZFuelSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RZFuelSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1013F1D195DAF56009BDCA4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E1013F25195DAF56009BDCA4 /* RZFuelSourceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RZFuelSourceTests-Info.plist"; sourceTree = "<group>"; };
+		E1013F27195DAF56009BDCA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZFuelSourceTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1013EF8195DAF56009BDCA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F01195DAF56009BDCA4 /* CoreGraphics.framework in Frameworks */,
+				E1013F03195DAF56009BDCA4 /* UIKit.framework in Frameworks */,
+				E1013EFF195DAF56009BDCA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1013F19195DAF56009BDCA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F1E195DAF56009BDCA4 /* XCTest.framework in Frameworks */,
+				E1013F20195DAF56009BDCA4 /* UIKit.framework in Frameworks */,
+				E1013F1F195DAF56009BDCA4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1013EF2195DAF55009BDCA4 = {
+			isa = PBXGroup;
+			children = (
+				E1013F04195DAF56009BDCA4 /* RZFuelSource */,
+				E1013F23195DAF56009BDCA4 /* RZFuelSourceTests */,
+				E1013EFD195DAF56009BDCA4 /* Frameworks */,
+				E1013EFC195DAF56009BDCA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1013EFC195DAF56009BDCA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1013EFB195DAF56009BDCA4 /* RZFuelSource.app */,
+				E1013F1C195DAF56009BDCA4 /* RZFuelSourceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1013EFD195DAF56009BDCA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1013EFE195DAF56009BDCA4 /* Foundation.framework */,
+				E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */,
+				E1013F02195DAF56009BDCA4 /* UIKit.framework */,
+				E1013F1D195DAF56009BDCA4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1013F04195DAF56009BDCA4 /* RZFuelSource */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F34195DB01F009BDCA4 /* Application */,
+				E1013F35195DB024009BDCA4 /* View Controllers */,
+				E1013F16195DAF56009BDCA4 /* Images.xcassets */,
+				E1013F05195DAF56009BDCA4 /* Supporting Files */,
+			);
+			path = RZFuelSource;
+			sourceTree = "<group>";
+		};
+		E1013F05195DAF56009BDCA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F06195DAF56009BDCA4 /* RZFuelSource-Info.plist */,
+				E1013F07195DAF56009BDCA4 /* InfoPlist.strings */,
+				E1013F0A195DAF56009BDCA4 /* main.m */,
+				E1013F0C195DAF56009BDCA4 /* RZFuelSource-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1013F23195DAF56009BDCA4 /* RZFuelSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F29195DAF56009BDCA4 /* RZFuelSourceTests.m */,
+				E1013F24195DAF56009BDCA4 /* Supporting Files */,
+			);
+			path = RZFuelSourceTests;
+			sourceTree = "<group>";
+		};
+		E1013F24195DAF56009BDCA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F25195DAF56009BDCA4 /* RZFuelSourceTests-Info.plist */,
+				E1013F26195DAF56009BDCA4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1013F33195DB018009BDCA4 /* Map View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F13195DAF56009BDCA4 /* RZMapViewController.h */,
+				E1013F14195DAF56009BDCA4 /* RZMapViewController.m */,
+			);
+			name = "Map View Controller";
+			sourceTree = "<group>";
+		};
+		E1013F34195DB01F009BDCA4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F0D195DAF56009BDCA4 /* RZAppDelegate.h */,
+				E1013F0E195DAF56009BDCA4 /* RZAppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		E1013F35195DB024009BDCA4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1013F33195DB018009BDCA4 /* Map View Controller */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1013EFA195DAF56009BDCA4 /* RZFuelSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1013F2D195DAF56009BDCA4 /* Build configuration list for PBXNativeTarget "RZFuelSource" */;
+			buildPhases = (
+				E1013EF7195DAF56009BDCA4 /* Sources */,
+				E1013EF8195DAF56009BDCA4 /* Frameworks */,
+				E1013EF9195DAF56009BDCA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RZFuelSource;
+			productName = RZFuelSource;
+			productReference = E1013EFB195DAF56009BDCA4 /* RZFuelSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1013F1B195DAF56009BDCA4 /* RZFuelSourceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1013F30195DAF56009BDCA4 /* Build configuration list for PBXNativeTarget "RZFuelSourceTests" */;
+			buildPhases = (
+				E1013F18195DAF56009BDCA4 /* Sources */,
+				E1013F19195DAF56009BDCA4 /* Frameworks */,
+				E1013F1A195DAF56009BDCA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1013F22195DAF56009BDCA4 /* PBXTargetDependency */,
+			);
+			name = RZFuelSourceTests;
+			productName = RZFuelSourceTests;
+			productReference = E1013F1C195DAF56009BDCA4 /* RZFuelSourceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1013EF3195DAF55009BDCA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Raizlabs;
+				TargetAttributes = {
+					E1013F1B195DAF56009BDCA4 = {
+						TestTargetID = E1013EFA195DAF56009BDCA4;
+					};
+				};
+			};
+			buildConfigurationList = E1013EF6195DAF55009BDCA4 /* Build configuration list for PBXProject "RZFuelSource" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1013EF2195DAF55009BDCA4;
+			productRefGroup = E1013EFC195DAF56009BDCA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1013EFA195DAF56009BDCA4 /* RZFuelSource */,
+				E1013F1B195DAF56009BDCA4 /* RZFuelSourceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1013EF9195DAF56009BDCA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F17195DAF56009BDCA4 /* Images.xcassets in Resources */,
+				E1013F09195DAF56009BDCA4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1013F1A195DAF56009BDCA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F28195DAF56009BDCA4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1013EF7195DAF56009BDCA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F0F195DAF56009BDCA4 /* RZAppDelegate.m in Sources */,
+				E1013F15195DAF56009BDCA4 /* RZMapViewController.m in Sources */,
+				E1013F0B195DAF56009BDCA4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1013F18195DAF56009BDCA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1013F2A195DAF56009BDCA4 /* RZFuelSourceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1013F22195DAF56009BDCA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1013EFA195DAF56009BDCA4 /* RZFuelSource */;
+			targetProxy = E1013F21195DAF56009BDCA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E1013F07195DAF56009BDCA4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1013F08195DAF56009BDCA4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E1013F26195DAF56009BDCA4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1013F27195DAF56009BDCA4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1013F2B195DAF56009BDCA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E1013F2C195DAF56009BDCA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1013F2E195DAF56009BDCA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RZFuelSource/RZFuelSource-Prefix.pch";
+				INFOPLIST_FILE = "RZFuelSource/RZFuelSource-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E1013F2F195DAF56009BDCA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RZFuelSource/RZFuelSource-Prefix.pch";
+				INFOPLIST_FILE = "RZFuelSource/RZFuelSource-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E1013F31195DAF56009BDCA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RZFuelSource.app/RZFuelSource";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RZFuelSource/RZFuelSource-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RZFuelSourceTests/RZFuelSourceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E1013F32195DAF56009BDCA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RZFuelSource.app/RZFuelSource";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RZFuelSource/RZFuelSource-Prefix.pch";
+				INFOPLIST_FILE = "RZFuelSourceTests/RZFuelSourceTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1013EF6195DAF55009BDCA4 /* Build configuration list for PBXProject "RZFuelSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1013F2B195DAF56009BDCA4 /* Debug */,
+				E1013F2C195DAF56009BDCA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1013F2D195DAF56009BDCA4 /* Build configuration list for PBXNativeTarget "RZFuelSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1013F2E195DAF56009BDCA4 /* Debug */,
+				E1013F2F195DAF56009BDCA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E1013F30195DAF56009BDCA4 /* Build configuration list for PBXNativeTarget "RZFuelSourceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1013F31195DAF56009BDCA4 /* Debug */,
+				E1013F32195DAF56009BDCA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E1013EF3195DAF55009BDCA4 /* Project object */;
+}
