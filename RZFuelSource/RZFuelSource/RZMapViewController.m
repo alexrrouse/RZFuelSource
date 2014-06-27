@@ -45,7 +45,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSArray     *fuelTypes;
 @property (nonatomic, strong) NSURLSessionDataTask      *queryTask;
 @property (nonatomic, assign) RZMapViewControllerQuery  queryType;
-@property (nonatomic, strong) NSArray                   *fuelStations;
 @property (nonatomic, strong) NSTimer                   *panReloadTimer;
 @property (nonatomic, strong) RZTitleView *navTitleView;
 
@@ -82,9 +81,10 @@ typedef enum : NSUInteger {
     
     if ([coordinateOrPolyline isKindOfClass:[NSValue class]]) {
         CLLocationCoordinate2D coordinate = [(NSValue *)coordinateOrPolyline MKCoordinateValue];
-        self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithLat:coordinate.latitude
-                                                                                   lon:coordinate.longitude
-                                                                       completionBlock:^(NSArray *objects, NSError *error)
+        self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:self.selectedFuelType
+                                                                                        lat:coordinate.latitude
+                                                                                        lon:coordinate.longitude
+                                                                            completionBlock:^(NSArray *objects, NSError *error)
                           {
                               if (error) {
                                   [[[UIAlertView alloc] initWithTitle:@"Access Problem!"
@@ -109,24 +109,22 @@ typedef enum : NSUInteger {
 - (void)loadFuelStations:(NSArray *)fuelStations
 {
     // Remove any fuel stations that have gone out of our scope
-    if (self.fuelStations) {
-        for (RZFuelStation *station in self.fuelStations) {
-            if ([fuelStations containsObject:station] == NO) {
-                [self.mapView removeAnnotation:(id)station];
-            }
+    NSMutableArray *oldStations = [@[] mutableCopy];
+    for (RZFuelStation *station in self.mapView.annotations) {
+        if ([fuelStations containsObject:station] == NO && [station isKindOfClass:[RZFuelStation class]]) {
+            [oldStations addObject:station];
         }
     }
+    [self.mapView removeAnnotations:oldStations];
     
     // Determine the stations added to our scope
     NSMutableArray *newStations = [@[] mutableCopy];
     for (RZFuelStation *station in fuelStations) {
-        if ([self.fuelStations containsObject:station] == NO) {
+        if ([self.mapView.annotations containsObject:station] == NO) {
             [newStations addObject:station];
         }
     }
 
-    self.fuelStations = fuelStations;
-    
     // Update the new stations, dependent on the query type.
     if ([newStations count]) {
         if (self.queryType == RZMapViewControllerQueryMapLocation) {

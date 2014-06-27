@@ -139,10 +139,10 @@ static NSString * const kRZFuelServiceAPIRouteURL       = @"alt-fuel-stations/v1
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:
                                    @{kRZFuelServiceAPIKeyRequestAPIKey : kRZFuelServiceAPIKey,
                                      kRZFuelServiceAPIRequestKeyFuelType : [NSString stringFromFuelType:fuelType],
-                                     kRZFuelServiceAPIRequestKeyRadius : @(50),
+                                     kRZFuelServiceAPIRequestKeyRadius : @(5),
                                      kRZFuelServiceAPIRequestKeyStatus : @"E",
                                      kRZFuelServiceAPIRequestKeyAccess: @"public",
-                                     kRZFuelServiceAPIRequestKeyLimit : @(10),
+                                     kRZFuelServiceAPIRequestKeyLimit : @(100),
                                      kRZFuelServiceAPIRequestKeyLatitude : @(lat),
                                      kRZFuelServiceAPIRequestKeyLongitude : @(lon) }
                                    ];
