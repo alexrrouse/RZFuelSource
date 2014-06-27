@@ -11,6 +11,7 @@
 // View Controllers
 #import "RZMapViewController.h"
 #import "RZFuelWebService.h"
+#import "RZDirectionService.h"
 
 // Utilities
 #import "RZFuelSourceAppearance.h"
@@ -61,6 +62,24 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
+        MKDirectionsRequest* directionsInfo = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
+        [[RZDirectionService sharedInstance] directionsFromDirectionRequest:directionsInfo];
+        // TO DO: Plot and display the route using the
+        //   source and destination properties of directionsInfo.
+        return YES;
+    }
+    else {
+        // Handle other URL types...
+    }
+    return NO;
 }
 
 @end

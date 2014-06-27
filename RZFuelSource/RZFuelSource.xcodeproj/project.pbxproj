@@ -64,6 +64,8 @@
 		98414A87195DB34800DC2FDD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 98414A7E195DB34800DC2FDD /* AFURLSessionManager.m */; };
 		98414A8A195DB36900DC2FDD /* RZFuelWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 98414A89195DB36900DC2FDD /* RZFuelWebService.m */; };
 		98414A8C195DB38300DC2FDD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98414A8B195DB38300DC2FDD /* MapKit.framework */; };
+		98414A8E195DDE4800DC2FDD /* usa.GEOJson in Resources */ = {isa = PBXBuildFile; fileRef = 98414A8D195DDE4800DC2FDD /* usa.GEOJson */; };
+		985AE969195DE22000C5B3BA /* RZDirectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 985AE968195DE22000C5B3BA /* RZDirectionService.m */; };
 		E1013EFF195DAF56009BDCA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013EFE195DAF56009BDCA4 /* Foundation.framework */; };
 		E1013F01195DAF56009BDCA4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */; };
 		E1013F03195DAF56009BDCA4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1013F02195DAF56009BDCA4 /* UIKit.framework */; };
@@ -219,6 +221,9 @@
 		98414A88195DB36900DC2FDD /* RZFuelWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZFuelWebService.h; path = Data/RZFuelWebService.h; sourceTree = "<group>"; };
 		98414A89195DB36900DC2FDD /* RZFuelWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZFuelWebService.m; path = Data/RZFuelWebService.m; sourceTree = "<group>"; };
 		98414A8B195DB38300DC2FDD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		98414A8D195DDE4800DC2FDD /* usa.GEOJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = usa.GEOJson; path = SupportedFiles/usa.GEOJson; sourceTree = "<group>"; };
+		985AE967195DE22000C5B3BA /* RZDirectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RZDirectionService.h; path = Data/RZDirectionService.h; sourceTree = "<group>"; };
+		985AE968195DE22000C5B3BA /* RZDirectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RZDirectionService.m; path = Data/RZDirectionService.m; sourceTree = "<group>"; };
 		E1013EFB195DAF56009BDCA4 /* RZFuelSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZFuelSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1013EFE195DAF56009BDCA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E1013F00195DAF56009BDCA4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -294,6 +299,8 @@
 				984149AB195DB2DC00DC2FDD /* RZFuelStation.m */,
 				98414A88195DB36900DC2FDD /* RZFuelWebService.h */,
 				98414A89195DB36900DC2FDD /* RZFuelWebService.m */,
+				985AE967195DE22000C5B3BA /* RZDirectionService.h */,
+				985AE968195DE22000C5B3BA /* RZDirectionService.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -795,6 +802,7 @@
 				E1013F07195DAF56009BDCA4 /* InfoPlist.strings */,
 				E1013F0A195DAF56009BDCA4 /* main.m */,
 				E1013F0C195DAF56009BDCA4 /* RZFuelSource-Prefix.pch */,
+				98414A8D195DDE4800DC2FDD /* usa.GEOJson */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -932,6 +940,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Raizlabs;
 				TargetAttributes = {
+					E1013EFA195DAF56009BDCA4 = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					E1013F1B195DAF56009BDCA4 = {
 						TestTargetID = E1013EFA195DAF56009BDCA4;
 					};
@@ -962,6 +977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1013F17195DAF56009BDCA4 /* Images.xcassets in Resources */,
+				98414A8E195DDE4800DC2FDD /* usa.GEOJson in Resources */,
 				E1013F09195DAF56009BDCA4 /* InfoPlist.strings in Resources */,
 				E1013F69195DEDD8009BDCA4 /* RZTitleView.xib in Resources */,
 			);
@@ -1014,6 +1030,7 @@
 				98414A35195DB32500DC2FDD /* CAAnimation+RZBlocks.m in Sources */,
 				98414A81195DB34800DC2FDD /* AFHTTPSessionManager.m in Sources */,
 				984149AC195DB2DC00DC2FDD /* RZFuelStation.m in Sources */,
+				985AE969195DE22000C5B3BA /* RZDirectionService.m in Sources */,
 				98414A47195DB32500DC2FDD /* UIView+RZBorders.m in Sources */,
 				98414A45195DB32500DC2FDD /* UITableViewCell+RZCellStyling.m in Sources */,
 				98414A3E195DB32500DC2FDD /* UIColor+RZExtensions.m in Sources */,
