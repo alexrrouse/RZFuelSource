@@ -10,6 +10,6 @@
 
 @interface RZMapViewController : UIViewController
 
-- (void)focusOn:(id)coordinateOrPolyline;
-
+- (void)focusOnCoordinate:(CLLocationCoordinate2D)coordinate;
+- (void)focusOnDirectionRequest:(MKDirectionsRequest *)request;
 @end

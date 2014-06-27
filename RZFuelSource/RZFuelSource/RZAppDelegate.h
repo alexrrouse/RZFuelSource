@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class RZMapViewController;
 @interface RZAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) RZMapViewController *rootViewController;
 
 @end

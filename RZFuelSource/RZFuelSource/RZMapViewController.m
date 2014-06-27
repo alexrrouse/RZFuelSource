@@ -10,6 +10,7 @@
 
 // Services
 #import "RZFuelWebService.h"
+#import "RZDirectionService.h"
 
 // Model Data
 #import "RZFuelType.h"
@@ -47,7 +48,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) RZMapViewControllerQuery  queryType;
 @property (nonatomic, strong) NSTimer                   *panReloadTimer;
 @property (nonatomic, strong) RZTitleView *navTitleView;
-
 @end
 
 @implementation RZMapViewController
@@ -73,37 +73,45 @@ typedef enum : NSUInteger {
     return (id)self.view;
 }
 
-- (void)focusOn:(id)coordinateOrPolyline
+- (void)focusOnDirectionRequest:(MKDirectionsRequest *)request
 {
     if (self.queryTask) {
-        return;
+        [self.queryTask cancel];
     }
-    
-    if ([coordinateOrPolyline isKindOfClass:[NSValue class]]) {
-        CLLocationCoordinate2D coordinate = [(NSValue *)coordinateOrPolyline MKCoordinateValue];
-        self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:self.selectedFuelType
-                                                                                        lat:coordinate.latitude
-                                                                                        lon:coordinate.longitude
-                                                                            completionBlock:^(NSArray *objects, NSError *error)
+    [[RZDirectionService sharedInstance] directionsFromDirectionRequest:request withCompletionBlock:^(NSString *lineString, MKRoute *route, NSError *error) {
+        self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationsWithFuelType:self.selectedFuelType
+                                                                                       route:lineString
+                                                                             completionBlock:^(NSArray *objects, NSError *error)
                           {
+                              self.queryType = RZMapViewControllerQueryRoute;
                               if (error) {
-                                  [[[UIAlertView alloc] initWithTitle:@"Access Problem!"
-                                                              message:@"Encountered an issue obtaining station data."
-                                                             delegate:self
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil] show];
+                                  [self showWebServiceError:error];
                               } else {
                                   [self loadFuelStations:objects];
                               }
                               self.queryTask = nil;
                           }];
-
-    }
+    }];
 }
 
 - (void)focusOnCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    [self focusOn:[NSValue valueWithMKCoordinate:coordinate]];
+    if (self.queryTask) {
+        return;
+    }
+
+    self.queryTask = [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:self.selectedFuelType
+                                                                                    lat:coordinate.latitude
+                                                                                    lon:coordinate.longitude
+                                                                        completionBlock:^(NSArray *objects, NSError *error)
+                      {
+                          if (error) {
+                              [self showWebServiceError:error];
+                          } else {
+                              [self loadFuelStations:objects];
+                          }
+                          self.queryTask = nil;
+                      }];
 }
 
 - (void)loadFuelStations:(NSArray *)fuelStations
@@ -138,11 +146,24 @@ typedef enum : NSUInteger {
 
 - (void)updateFocusDueToMapChange
 {
-    self.queryType = RZMapViewControllerQueryMapLocation;
     [self focusOnCoordinate:self.mapView.centerCoordinate];
 }
 
+- (void)showWebServiceError:(NSError *)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"Access Problem!"
+                                message:@"Encountered an issue obtaining station data."
+                               delegate:self
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+
 #pragma mark - ViewController Lifecycle
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    self.queryType = RZMapViewControllerQueryMapLocation;
+}
 
 - (void)loadView
 {
@@ -264,7 +285,9 @@ typedef enum : NSUInteger {
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     [self.panReloadTimer invalidate];
-    self.panReloadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateFocusDueToMapChange) userInfo:nil repeats:NO];
+    if (self.queryType == RZMapViewControllerQueryMapLocation) {
+        self.panReloadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateFocusDueToMapChange) userInfo:nil repeats:NO];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

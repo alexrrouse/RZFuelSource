@@ -21,19 +21,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    RZMapViewController *rootViewController = [[RZMapViewController alloc] init];
-    UINavigationController *rootNavController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    self.rootViewController = [[RZMapViewController alloc] init];
+    UINavigationController *rootNavController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootNavController;
     [self.window makeKeyAndVisible];
     
     [RZFuelSourceAppearance setDefaultThemes];
-
-    [[RZFuelWebService sharedInstance] fetchNearbyLocationWithFuelType:RZFuelTypeElectric lat:42.3581 lon:-71.0636 completionBlock:^(NSArray *objects, NSError *error) {
-        
-    }];
-    
     return YES;
 }
 							
@@ -69,16 +64,15 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     
-//    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
-//        MKDirectionsRequest* directionsInfo = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
-//        [[RZDirectionService sharedInstance] directionsFromDirectionRequest:directionsInfo];
-//        // TO DO: Plot and display the route using the
-//        //   source and destination properties of directionsInfo.
-//        return YES;
-//    }
-//    else {
-//        // Handle other URL types...
-//    }
+    if ([MKDirectionsRequest isDirectionsRequestURL:url]) {
+        MKDirectionsRequest* request = [[MKDirectionsRequest alloc] initWithContentsOfURL:url];
+        [self.rootViewController focusOnDirectionRequest:request];
+
+        return YES;
+    }
+    else {
+        // Handle other URL types...
+    }
     return NO;
 }
 
