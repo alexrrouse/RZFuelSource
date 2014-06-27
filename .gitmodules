@@ -9,4 +9,4 @@
 	url = git@github.com:AFNetworking/AFNetworking.git
 [submodule "External/REMenu"]
 	path = External/REMenu
-	url = https://github.com/romaonthego/REMenu.git
+	url = https://github.com/smbarne/REMenu.git
