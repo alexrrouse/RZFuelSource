@@ -19,6 +19,11 @@
 
 - (NSString *)title
 {
+    return [NSString descriptionForFuelType:self.fuelType];
+}
+
+- (NSString *)subtitle
+{
     return [self.stationName copy];
 }
 

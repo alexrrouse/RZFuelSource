@@ -277,11 +277,13 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark MKMapViewDelegate - DataSource
+
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
     [self.panReloadTimer invalidate];
     self.panReloadTimer = nil;
 }
+
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     [self.panReloadTimer invalidate];
@@ -290,18 +292,15 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    NSLog(@"Oh, Hi");
-}
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    static NSString *pinReuseIdentifier = @"FuelSource";
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
     }
-    static NSString *pinReuseIdentifier = @"FuelSource";
+
     MKAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinReuseIdentifier];
+    [view setCanShowCallout:YES];
     return view;
 }
 
